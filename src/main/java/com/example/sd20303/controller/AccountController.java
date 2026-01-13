@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 @Controller
 @RequestMapping("account")
@@ -21,7 +22,7 @@ public class AccountController {
     @PostMapping("login")
     public String login(Account account,
                         Model model) {
-        // co the dung @RequestParam
+        // co the dung @RequestParam("username")
         if (account.getUsername().equals("nguyenvv4") && account.getPassword().equals("123456")) {
             model.addAttribute("message", "Login thanh cong");
         } else {
@@ -29,4 +30,21 @@ public class AccountController {
         }
         return "home/result.html";
     }
+
+    // vi du ve forward và redirect
+    @GetMapping("url1")
+    public String url1() {
+        return "home/result.html";
+    }
+
+    @GetMapping("url2")
+    public String url2(
+//            Model model
+            RedirectAttributes model
+    ) {
+        model.addAttribute("message", "ahi hi do ngoc");
+//        return "forward:/account/url1";
+        return "redirect:/account/url1";
+    }
+
 }
