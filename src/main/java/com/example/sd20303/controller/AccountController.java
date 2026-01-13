@@ -1,5 +1,6 @@
 package com.example.sd20303.controller;
 
+import com.example.sd20303.model.Account;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -18,11 +19,10 @@ public class AccountController {
 
     // thao tac login
     @PostMapping("login")
-    public String login(@RequestParam("username") String un, @RequestParam("password") String pw,
+    public String login(Account account,
                         Model model) {
-        System.out.println(un);
-        System.out.println(pw);
-        if (un.equals("nguyenvv4") && pw.equals("123456")) {
+        // co the dung @RequestParam
+        if (account.getUsername().equals("nguyenvv4") && account.getPassword().equals("123456")) {
             model.addAttribute("message", "Login thanh cong");
         } else {
             model.addAttribute("message", "Login khong thanh cong");
