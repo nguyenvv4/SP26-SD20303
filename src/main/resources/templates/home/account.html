@@ -8,6 +8,13 @@
     <title>Title</title>
 </head>
 <body>
+
+<select name="" id="">
+    <th:block th:each="account,st : ${listAccount}">
+        <option th:text="${account.username}" th:value="${st.index}"></option>
+    </th:block>
+</select>
+
 <table class="table">
     <thead>
     <tr>
