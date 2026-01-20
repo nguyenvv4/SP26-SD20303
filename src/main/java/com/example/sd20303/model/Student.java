@@ -1,6 +1,7 @@
 package com.example.sd20303.model;
 
 import jakarta.persistence.*;
+import jakarta.validation.constraints.NotBlank;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -22,6 +23,7 @@ public class Student {
     @Column(name = "Id")
     private Integer id;
 
+    @NotBlank(message = "Khong duoc de trong")
     @Column(name = "StudentCode")
     private String studentCode;
 
