@@ -8,5 +8,5 @@ import org.springframework.stereotype.Repository;
 @Repository
 //minh đang thao tác với bảng students thì Repo sẽ trỏ đến entity Student
 //=>> cách làm
-public interface StudentRepo extends JpaRepository<com.example.sd20303.model.Student, Integer> {
+public interface StudentRepo extends JpaRepository<Student, Integer> {
 }
