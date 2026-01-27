@@ -13,6 +13,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.List;
 
@@ -58,8 +59,13 @@ public class StudentController {
     }
 
     @GetMapping("/student/detail")
-    public String detail(Model model, Integer id) {
-//        ....
+    public String detail(Model model,
+                         @RequestParam("id") Integer id, // cach 1. dùng RequestParam
+                         @ModelAttribute("student") Student student
+    ) {
+        student = studentRepo.findById(id).get();
+        model.addAttribute("student", student);
+        return "/detail.html";
     }
 
     @PostMapping("/student/update")

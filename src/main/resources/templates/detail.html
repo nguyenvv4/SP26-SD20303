@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<form action="/student/update" method="post" th:object="${student}">
+    Id <input type="text" th:field="*{id}" readonly> <br>
+    Student Code <input type="text" th:field="*{studentCode}"> <br>
+    Full Name <input type="text" th:field="*{fullName}"> <br>
+    Gender <input type="radio" th:field="*{gender}" value="Male">: Nam
+    <input type="radio" th:field="*{gender}" value="Female">: Nu <br>
+    Email <input type="text" th:field="*{email}"> <br>
+    Phone <input type="text" th:field="*{phone}"> <br>
+    Major <input type="text" th:field="*{major}"> <br>
+    Class Name <input type="text" th:field="*{className}"> <br>
+    <button type="submit">Save</button>
+</form>
+</body>
+</html>

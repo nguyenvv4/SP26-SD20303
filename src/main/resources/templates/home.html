@@ -42,6 +42,7 @@
         <td th:text="${st.phone}"></td>
         <td th:text="${st.major}"></td>
         <td th:text="${st.className}"></td>
+        <td><a th:href="@{'/student/detail?id='+${st.id}}">Detail</a></td>
     </tbody>
 </table>
 </body>
