@@ -57,6 +57,11 @@ public class StudentController {
         return "redirect:/student/show";
     }
 
+    @GetMapping("/student/detail")
+    public String detail(Model model, Integer id) {
+//        ....
+    }
+
     @PostMapping("/student/update")
     public String update(Student student) {
         // lưu ý: update phải truyền theo id của student
