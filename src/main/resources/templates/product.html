@@ -44,5 +44,20 @@
     </tr>
     </tbody>
 </table>
+
+<table>
+    <thead>
+    <tr>
+        <td>Name</td>
+        <td>So Luong</td>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="pro : ${productTmpList}">
+        <td th:text="${pro.name}"></td>
+        <td th:text="${pro.soLuong}"></td>
+    </tr>
+    </tbody>
+</table>
 </body>
 </html>

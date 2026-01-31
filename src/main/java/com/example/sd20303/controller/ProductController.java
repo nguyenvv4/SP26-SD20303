@@ -2,6 +2,7 @@ package com.example.sd20303.controller;
 
 import com.example.sd20303.model.Category;
 import com.example.sd20303.model.Product;
+import com.example.sd20303.model.ProductTmp;
 import com.example.sd20303.service.CategoryService;
 import com.example.sd20303.service.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -37,5 +38,15 @@ public class ProductController {
         product.setCreateDate(new Date());
         productService.save(product);
         return "redirect:/product/show";
+    }
+
+    @GetMapping("/product/showTmp")
+    public String showProductTmp(Model model) {
+        List<ProductTmp> productTmpList = productService.getList();
+        model.addAttribute("productTmpList", productTmpList);
+        List<Product> getByCategory = productService.getByCategory("Áo thun", false);
+        System.out.println(getByCategory.toString());
+
+        return "product.html";
     }
 }
